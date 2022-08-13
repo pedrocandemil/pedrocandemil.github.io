@@ -1,0 +1,94 @@
+<html>
+	<head>
+		<title>Pedro's Website ChatBot</title>
+			<script src="https://sdk.inbenta.io/chatbot/1/inbenta-chatbot-sdk.js"></script>
+	</head>
+	<body>
+		<script>
+    function build() {
+        var config = {
+    "labels": {
+        "en": {
+            "alert-button": "Try again",
+            "alert-message": "Something went wrong, please click the button to reload.",
+            "alert-title": "OOOOPS...!",
+            "generic-error-message": "The format of your answer is not valid",
+            "close-chat": "Do you want to close this chat?<p><div class=\"confirmation-box__subtitle\">You will lose the entire conversation.<\/p><\/div>",
+            "enter-question": "Enter your question",
+            "submit": "Submit",
+            "download": "Download",
+            "chat-closed": "Chat closed",
+            "close-agent": "Do you want to leave the conversation with this agent?",
+            "wait-for-agent": "Waiting for an agent...",
+            "agent-left": "{agentName} has left the chat",
+            "agent-joined": "{agentName} has joined the chat",
+            "related-content-title": "You might also be interested in:",
+            "see-more": "More info",
+            "choose-option": "Choose an option",
+            "selected-option": "You have selected {variableLabel}",
+            "created-ticket": "Your ticket ID {ticketId} has been successfully created.",
+            "interface-title": "Activity 04 - Name Change"
+        }
+    },
+    "lang": "en",
+    "skin": "imperial-black",
+    "inputCharacterCounter": true,
+    "autoDisplaySideWindow": true,
+    "inputCharacterCounterMax": 256,
+    "showDateTime": true,
+    "delayOnAnswer": 2000,
+    "delayOnMultipleAnswers": true,
+    "showActivityOnDelay": 1000,
+    "closeButton": {
+        "visible": true
+    },
+    "answers": {
+        "maxRelatedContents": 3,
+        "maxOptions": 3
+    },
+    "relatedContentsExpand": true,
+    "relatedPosition": "mixed",
+    "ratingOptions": [
+        {
+            "id": 1,
+            "comment": false
+        },
+        {
+            "id": 2,
+            "comment": true
+        }
+    ],
+    "ratingPosition": "mixed",
+    "avatar": {
+        "shouldUse": false,
+        "displayPosition": "top",
+        "avatarModel": "A1",
+        "camera": "PC",
+        "outfit": "skin_1"
+    },
+    "environment": "development",
+    "chatbotId": "62f7f8b531773"
+};
+        var authorization = {
+            domainKey: 'pedrocandemil.github.io',
+            inbentaKey: 'BeYO7c721GqNxpMk+WDfmutqPahWzr6+iI2mW3gBPEU='
+        };
+
+        config['adapters'] = [];
+
+        
+        
+        InbentaChatbotSDK.buildWithDomainCredentials(authorization, config);
+    }
+
+
+    var interval = setInterval(function() {
+        if (window.SDKHCAdapter) {
+            clearInterval(interval);
+            build();
+        }
+    }, 500);
+
+    </script>
+	</body>
+</html>
